@@ -1,0 +1,77 @@
+{extend name="dashboard" /}
+{block name="content"}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>用户管理</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="{:url('user/lists')}">列表</a>
+            </li>
+            <li>
+                <a>新增</a>
+            </li>
+            <li>
+                <strong>新增用户</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>新增用户</h5>
+                </div>
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" id="commentForm" method="post" action="{:url('user/save')}">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">用户编号：</label>
+                            <div class="col-sm-2">
+                                <input id="user_number" name="user_number" minlength="2" type="text" class="form-control" required="" aria-required="true">
+                            </div>
+                            <label class="col-sm-3 control-label">用户账号：</label>
+                            <div class="col-sm-2">
+                                <input id="cname" name="name" minlength="2" type="text" class="form-control" required="" aria-required="true">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">E-mail：</label>
+                            <div class="col-sm-2">
+                                <input id="cemail" type="email" class="form-control" name="email" required="" aria-required="true">
+                            </div>
+                            <label class="col-sm-3 control-label">真实姓名：</label>
+                            <div class="col-sm-2">
+                                <input id="curl" type="text" class="form-control" name="user_realname">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">密码：</label>
+                            <div class="col-sm-2">
+                                <input id="psd" type="password" class="form-control" name="psd">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">说明：</label>
+                            <div class="col-sm-8">
+                                <textarea id="ccomment" name="comment" class="form-control" required="" aria-required="true"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-3">
+                                <button class="btn btn-primary" type="submit">提交</button>
+                                <a href="{:url('user/lists')}" class="btn btn-white">取消</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{/block}

@@ -1,0 +1,68 @@
+{extend name="dashboard" /}
+{block name="content"}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>菜单管理</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="{:url('menu/index')}">列表</a>
+            </li>
+<!--            <li>-->
+<!--                <a>新增</a>-->
+<!--            </li>-->
+            <li>
+                <strong>编辑菜单</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>编辑菜单</h5>
+                </div>
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" id="commentForm" method="post" action="{:url('menu/modify')}">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">菜单名称：</label>
+                            <div class="col-sm-3">
+                                <input id="menu_name" name="menu_name" minlength="2" type="text" class="form-control" required="" aria-required="true" value="{$row.menu_name}">
+                            </div>
+                            <label class="col-sm-3 control-label">选择父菜单：</label>
+                            <div class="col-sm-2">
+                                <select class="form-control" name="menu_id" id="">
+                                    <option value="0" {if $row.parent_menu_id == 0} selected {/if}>--</option>
+                                    {foreach $menus as $menu}
+                                    <option value="{$menu.id}" {if $menu.id==$row.parent_menu_id} selected {/if}>{$menu.menu_name}</option>
+                                    {/foreach}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">菜单URL：</label>
+                            <div class="col-sm-3">
+                                <input id="menu_url" name="menu_url" minlength="2" type="text" class="form-control" required="" aria-required="true" value="{$row.menu_url}">
+                            </div>
+
+                        </div>
+                        <input type="hidden" name="id" value="{$row.id}">
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-3">
+                                <button class="btn btn-primary" type="submit">提交</button>
+                                <a href="{:url('menu/index')}" class="btn btn-white">取消</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{/block}

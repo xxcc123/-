@@ -1,0 +1,58 @@
+{extend name="dashboard" /}
+{block name="content"}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>产品管理</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="{:url('product/category')}">列表</a>
+            </li>
+            <li>
+                <a href="{:url('product/add')}">新增分类</a>
+            </li>
+            <li>
+                <strong></strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="row wrapper wrapper-content animated fadeInRight">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>分类列表</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="buttons.html#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="buttons.html#">选项1</a>
+                        </li>
+                        <li><a href="buttons.html#">选项2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div id="treeview3" class="test treeview">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="script"}
+<script>
+
+</script>
+{/block}

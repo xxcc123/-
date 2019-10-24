@@ -1,0 +1,75 @@
+{extend name="dashboard" }
+{block name="content"}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>权限管理</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="{:url('user/lists')}">列表</a>
+            </li>
+            <!--            <li>-->
+            <!--                <a>新增</a>-->
+            <!--            </li>-->
+            <li>
+                <strong>权限列表</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>权限列表</h5>
+                </div>
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" id="commentForm" method="post" action="{:url('permission/modify')}">
+                        <input type="hidden" name="id" value="{$id}">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">菜单名称：</label>
+                            <div class="col-sm-10">
+                                {foreach $data as $menu}
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="menu_id[]" value="{$menu['id']}"
+                                    {foreach $permission as $val}
+                                           {if ($val.user_id==$id && $val.menu_id==$menu['id'])}
+                                    checked
+                                    {/if}
+                                    {/foreach}
+                                    >
+                                    {$menu.menu_name}
+                                </label>
+                                {/foreach}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-3">
+                                <button class="btn btn-primary" type="submit">提交</button>
+                                <a href="{:url('user/lists')}" class="btn btn-white">取消</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{/block}
+
+{block name="script"}
+
+<script>
+    $(document).ready(function () {
+        $('.i-checks').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green',
+        });
+    });
+</script>
+{/block}
