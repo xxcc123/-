@@ -52,7 +52,7 @@ class  Api extends Controller{
     {
         $name = input('name');
 
-        $user = User::where('name',$name)->find();
+        $user = User::where('user_name',$name)->find();
 
         return json_encode([
             'code' => 200,
